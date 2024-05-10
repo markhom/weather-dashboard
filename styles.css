@@ -1,0 +1,47 @@
+body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.header {
+    display: flex;
+    background: lightseagreen;
+    justify-content: center;
+}
+
+/* Section for search */
+.search-section {
+    width: 30%;
+    /* Adjust width as needed */
+    padding: 20px;
+}
+
+.weather-dashboard {
+    display: flex;
+    justify-content: space-between;
+    width: 100vw;
+    height: 100vh;
+}
+
+.weather-section {
+    width: 70%; /* Adjust width as needed */
+    padding: 20px;
+    display: flex;
+    flex-direction: column; /* This stacks the boxes vertically */
+}
+
+.current-weather {
+    flex: 2; /* Makes the box take up more space */
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Smaller boxes for next 5 days' weather */
+.forecast-day {
+    flex: 1; /* Each smaller box takes equal space */
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
