@@ -1,8 +1,11 @@
+// API key
+const apiKey = '204d347ec4c6ab25e6390230d6ba1dba';
+
 // Function to fetch current weather and 5-day forecast data from OpenWeatherMap API
 async function fetchWeatherData(city, apiKey) {
     // Base URLs for current weather and 5-day forecast
-    const currentWeatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-    const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
+    const currentWeatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
+    const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=imperial`;
 
     try {
         // Fetch current weather data
@@ -47,7 +50,7 @@ function displayCurrentWeather(data) {
     currentWeatherSection.appendChild(cityName);
 
     const temperature = document.createElement('p');
-    temperature.textContent = `Temperature: ${data.main.temp}°C`;
+    temperature.textContent = `Temperature: ${data.main.temp}°F`;
     currentWeatherSection.appendChild(temperature);
 
     const weatherDescription = document.createElement('p');
@@ -136,7 +139,6 @@ function displayPreviousSearches(previousSearches) {
         // Add an event listener to each list item
         listItem.addEventListener('click', function() {
             // Fetch weather data for the clicked city
-            const apiKey = '204d347ec4c6ab25e6390230d6ba1dbaE';
             fetchWeatherData(city, apiKey);
         });
         
@@ -145,7 +147,7 @@ function displayPreviousSearches(previousSearches) {
 }
 
 // Function to handle the search button click event
-function handleSearch(apiKey) {
+function handleSearch() {
     // Get the city name from the input
     const cityInput = document.getElementById('city-search');
     const cityName = cityInput.value.trim();
@@ -159,7 +161,7 @@ function handleSearch(apiKey) {
 }
 
 // Function to load the last searched city and fetch weather data
-function loadLastSearchedCity(apiKey) {
+function loadLastSearchedCity() {
     // Get the last searched city from local storage
     const previousSearches = JSON.parse(localStorage.getItem('previousSearches')) || [];
     
@@ -174,19 +176,9 @@ function loadLastSearchedCity(apiKey) {
 }
 
 // Attach an event listener to the search button
-document.getElementById('get-weather-button').addEventListener('click', function() {
-    // Use your API key here
-    const apiKey = '204d347ec4c6ab25e6390230d6ba1dba';
-    
-    // Handle the search button click event
-    handleSearch(apiKey);
-});
+document.getElementById('get-weather-button').addEventListener('click', handleSearch);
 
 // Load the last searched city and display previous searches when the page loads
 document.addEventListener('DOMContentLoaded', function() {
-    // Use your API key here
-    const apiKey = '204d347ec4c6ab25e6390230d6ba1dba';
-    
-    // Load the last searched city and fetch weather data
-    loadLastSearchedCity(apiKey);
+    loadLastSearchedCity();
 });
