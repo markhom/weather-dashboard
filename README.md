@@ -21,7 +21,7 @@ The Weather Dashboard is a web application that allows users to search for weath
 
 ## Example
 This is an example of what the weather dashboard looks like.
-![This is an example of what the weather dash looks like](/assets/images/weatherdashscreenshot.png)
+![This is an example of what the weather dash looks like](/images/weatherdashscreenshot.png)
 
 ## Technologies
 - HTML
